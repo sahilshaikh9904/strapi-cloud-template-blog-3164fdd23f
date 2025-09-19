@@ -1,0 +1,18 @@
+{
+    "collectionName": "components_sections_story_sections",
+    "info": {
+      "displayName": "Story Section",
+      "description": "Company story with rich text content"
+    },
+    "options": {},
+    "attributes": {
+      "content": {
+        "type": "richtext",
+        "required": true
+      },
+      "backgroundColor": {
+        "type": "string",
+        "default": "#331A14"
+      }
+    }
+  }

@@ -1,5 +1,153 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksContentWithImage extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_content_with_images';
+  info: {
+    description: 'Content block with title, description and image';
+    displayName: 'Content With Image';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    imageAlt: Schema.Attribute.String & Schema.Attribute.Required;
+    layout: Schema.Attribute.Enumeration<['image-left', 'image-right']> &
+      Schema.Attribute.DefaultTo<'image-right'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface BlocksFeatureBlock extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_feature_blocks';
+  info: {
+    description: 'Feature with title, description and image';
+    displayName: 'Feature Block';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    imageAlt: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface BlocksSocialLink extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_social_links';
+  info: {
+    description: 'Social media link component';
+    displayName: 'Social Link';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    platform: Schema.Attribute.String & Schema.Attribute.Required;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface BlocksValueCard extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_value_cards';
+  info: {
+    description: 'Value card with image, title and description';
+    displayName: 'Value Card';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    imageAlt: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SectionsHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_hero_sections';
+  info: {
+    description: 'Hero banner with image and title';
+    displayName: 'Hero Section';
+  };
+  attributes: {
+    altText: Schema.Attribute.String & Schema.Attribute.Required;
+    backgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'ABOUT US'>;
+  };
+}
+
+export interface SectionsPhilosophySection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_philosophy_sections';
+  info: {
+    description: 'Philosophy section with multiple content blocks';
+    displayName: 'Philosophy Section';
+  };
+  attributes: {
+    contentBlocks: Schema.Attribute.Component<
+      'blocks.content-with-image',
+      true
+    >;
+    sectionTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'OUR PHILOSOPHY'>;
+  };
+}
+
+export interface SectionsStayConnectedSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_stay_connected_sections';
+  info: {
+    description: 'Stay connected section with social links';
+    displayName: 'Stay Connected Section';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.Required;
+    description: Schema.Attribute.RichText & Schema.Attribute.Required;
+    socialLinks: Schema.Attribute.Component<'blocks.social-link', true>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'STAY CONNECTED'>;
+  };
+}
+
+export interface SectionsStorySection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_story_sections';
+  info: {
+    description: 'Company story with rich text content';
+    displayName: 'Story Section';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#331A14'>;
+    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+  };
+}
+
+export interface SectionsValuesSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_values_sections';
+  info: {
+    description: 'Company values section';
+    displayName: 'Values Section';
+  };
+  attributes: {
+    sectionTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'OUR VALUES'>;
+    values: Schema.Attribute.Component<'blocks.value-card', true>;
+  };
+}
+
+export interface SectionsWhyChooseSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_why_choose_sections';
+  info: {
+    description: 'Why choose us section with feature blocks';
+    displayName: 'Why Choose Section';
+  };
+  attributes: {
+    features: Schema.Attribute.Component<'blocks.feature-block', true>;
+    sectionTitle: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'WHY CHOOSE GRANDROSE?'>;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -38,15 +186,15 @@ export interface SharedRichText extends Struct.ComponentSchema {
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
-    description: '';
-    displayName: 'Seo';
-    icon: 'allergies';
-    name: 'Seo';
+    description: 'SEO meta tags and structured data';
+    displayName: 'SEO';
   };
   attributes: {
+    keywords: Schema.Attribute.String;
     metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    metaImage: Schema.Attribute.Media<'images'>;
     metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    structuredData: Schema.Attribute.JSON;
   };
 }
 
@@ -65,6 +213,16 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.content-with-image': BlocksContentWithImage;
+      'blocks.feature-block': BlocksFeatureBlock;
+      'blocks.social-link': BlocksSocialLink;
+      'blocks.value-card': BlocksValueCard;
+      'sections.hero-section': SectionsHeroSection;
+      'sections.philosophy-section': SectionsPhilosophySection;
+      'sections.stay-connected-section': SectionsStayConnectedSection;
+      'sections.story-section': SectionsStorySection;
+      'sections.values-section': SectionsValuesSection;
+      'sections.why-choose-section': SectionsWhyChooseSection;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

@@ -1,0 +1,33 @@
+{
+    "collectionName": "components_blocks_content_with_images",
+    "info": {
+      "displayName": "Content With Image",
+      "description": "Content block with title, description and image"
+    },
+    "options": {},
+    "attributes": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "content": {
+        "type": "richtext",
+        "required": true
+      },
+      "image": {
+        "type": "media",
+        "multiple": false,
+        "required": true,
+        "allowedTypes": ["images"]
+      },
+      "imageAlt": {
+        "type": "string",
+        "required": true
+      },
+      "layout": {
+        "type": "enumeration",
+        "enum": ["image-left", "image-right"],
+        "default": "image-right"
+      }
+    }
+  }

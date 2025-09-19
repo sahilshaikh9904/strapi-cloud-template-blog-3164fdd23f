@@ -1,0 +1,28 @@
+{
+    "collectionName": "components_blocks_feature_blocks",
+    "info": {
+      "displayName": "Feature Block",
+      "description": "Feature with title, description and image"
+    },
+    "options": {},
+    "attributes": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "description": {
+        "type": "text",
+        "required": true
+      },
+      "image": {
+        "type": "media",
+        "multiple": false,
+        "required": true,
+        "allowedTypes": ["images"]
+      },
+      "imageAlt": {
+        "type": "string",
+        "required": true
+      }
+    }
+  }

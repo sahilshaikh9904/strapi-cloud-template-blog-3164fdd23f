@@ -1,18 +1,55 @@
 {
-  "kind": "collectionType",
-  "collectionName": "aboutuses",
+  "kind": "singleType",
+  "collectionName": "about_us_page",
   "info": {
     "singularName": "aboutus",
     "pluralName": "aboutuses",
-    "displayName": "Aboutus"
+    "displayName": "About Us",
+    "description": "About Us page content and sections"
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": false
+    }
+  },
   "attributes": {
-    "story": {
-      "type": "text"
+    "heroSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.hero-section"
+    },
+    "storySection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.story-section"
+    },
+    "philosophySection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.philosophy-section"
+    },
+    "whyChooseSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.why-choose-section"
+    },
+    "valuesSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.values-section"
+    },
+    "stayConnectedSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.stay-connected-section"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }

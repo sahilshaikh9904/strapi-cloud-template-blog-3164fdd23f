@@ -1,0 +1,21 @@
+{
+    "collectionName": "components_sections_philosophy_sections",
+    "info": {
+      "displayName": "Philosophy Section",
+      "description": "Philosophy section with multiple content blocks"
+    },
+    "options": {},
+    "attributes": {
+      "sectionTitle": {
+        "type": "string",
+        "required": true,
+        "default": "OUR PHILOSOPHY"
+      },
+      "contentBlocks": {
+        "type": "component",
+        "repeatable": true,
+        "component": "blocks.content-with-image"
+      }
+    }
+  }
+  

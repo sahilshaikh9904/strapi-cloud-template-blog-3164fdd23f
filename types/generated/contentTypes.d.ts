@@ -402,31 +402,52 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiAboutusAboutus extends Struct.CollectionTypeSchema {
-  collectionName: 'aboutuses';
+export interface ApiAboutusAboutus extends Struct.SingleTypeSchema {
+  collectionName: 'about_us_page';
   info: {
-    displayName: 'Aboutus';
+    description: 'About Us page content and sections';
+    displayName: 'About Us';
     pluralName: 'aboutuses';
     singularName: 'aboutus';
   };
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: false;
+    };
+  };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    heroSection: Schema.Attribute.Component<'sections.hero-section', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::aboutus.aboutus'
     > &
       Schema.Attribute.Private;
+    philosophySection: Schema.Attribute.Component<
+      'sections.philosophy-section',
+      false
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    story: Schema.Attribute.Text;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    stayConnectedSection: Schema.Attribute.Component<
+      'sections.stay-connected-section',
+      false
+    >;
+    storySection: Schema.Attribute.Component<'sections.story-section', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    valuesSection: Schema.Attribute.Component<'sections.values-section', false>;
+    whyChooseSection: Schema.Attribute.Component<
+      'sections.why-choose-section',
+      false
+    >;
   };
 }
 

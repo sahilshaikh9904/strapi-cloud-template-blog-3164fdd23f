@@ -1,0 +1,25 @@
+{
+    "collectionName": "components_sections_hero_sections",
+    "info": {
+      "displayName": "Hero Section",
+      "description": "Hero banner with image and title"
+    },
+    "options": {},
+    "attributes": {
+      "title": {
+        "type": "string",
+        "required": true,
+        "default": "ABOUT US"
+      },
+      "backgroundImage": {
+        "type": "media",
+        "multiple": false,
+        "required": true,
+        "allowedTypes": ["images"]
+      },
+      "altText": {
+        "type": "string",
+        "required": true
+      }
+    }
+  }

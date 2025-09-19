@@ -1,0 +1,21 @@
+{
+    "collectionName": "components_sections_why_choose_sections",
+    "info": {
+      "displayName": "Why Choose Section",
+      "description": "Why choose us section with feature blocks"
+    },
+    "options": {},
+    "attributes": {
+      "sectionTitle": {
+        "type": "string",
+        "required": true,
+        "default": "WHY CHOOSE GRANDROSE?"
+      },
+      "features": {
+        "type": "component",
+        "repeatable": true,
+        "component": "blocks.feature-block"
+      }
+    }
+  }
+  

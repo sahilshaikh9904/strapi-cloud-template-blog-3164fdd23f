@@ -1,0 +1,30 @@
+{
+    "collectionName": "components_sections_stay_connected_sections",
+    "info": {
+      "displayName": "Stay Connected Section",
+      "description": "Stay connected section with social links"
+    },
+    "options": {},
+    "attributes": {
+      "title": {
+        "type": "string",
+        "required": true,
+        "default": "STAY CONNECTED"
+      },
+      "description": {
+        "type": "richtext",
+        "required": true
+      },
+      "backgroundImage": {
+        "type": "media",
+        "multiple": false,
+        "required": true,
+        "allowedTypes": ["images"]
+      },
+      "socialLinks": {
+        "type": "component",
+        "repeatable": true,
+        "component": "blocks.social-link"
+      }
+    }
+  }
