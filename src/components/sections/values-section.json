@@ -2,7 +2,7 @@
     "collectionName": "components_sections_values_sections",
     "info": {
       "displayName": "Values Section",
-      "description": "Company values section"
+      "description": "Company values section with background color"
     },
     "options": {},
     "attributes": {
@@ -10,6 +10,10 @@
         "type": "string",
         "required": true,
         "default": "OUR VALUES"
+      },
+      "backgroundColor": {
+        "type": "string",
+        "default": "#F9F9F9"
       },
       "values": {
         "type": "component",

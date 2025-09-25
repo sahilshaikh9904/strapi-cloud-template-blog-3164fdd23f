@@ -3,16 +3,31 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface BlocksContentWithImage extends Struct.ComponentSchema {
   collectionName: 'components_blocks_content_with_images';
   info: {
-    description: 'Content block with title, description and image';
+    description: 'Content block with title, description, main image, and optional additional image';
     displayName: 'Content With Image';
   };
   attributes: {
+    additionalImage: Schema.Attribute.Media<'images'>;
+    additionalImageAlt: Schema.Attribute.String;
     content: Schema.Attribute.RichText & Schema.Attribute.Required;
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'>;
     imageAlt: Schema.Attribute.String & Schema.Attribute.Required;
     layout: Schema.Attribute.Enumeration<['image-left', 'image-right']> &
       Schema.Attribute.DefaultTo<'image-right'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface BlocksFaqItem extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_faq_items';
+  info: {
+    description: 'Individual FAQ question and answer pair';
+    displayName: 'FAQ Item';
+  };
+  attributes: {
+    answer: Schema.Attribute.Text & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -76,10 +91,12 @@ export interface SectionsHeroSection extends Struct.ComponentSchema {
 export interface SectionsPhilosophySection extends Struct.ComponentSchema {
   collectionName: 'components_sections_philosophy_sections';
   info: {
-    description: 'Philosophy section with multiple content blocks';
+    description: 'Philosophy section with multiple content blocks and background color';
     displayName: 'Philosophy Section';
   };
   attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#F5F5F5'>;
     contentBlocks: Schema.Attribute.Component<
       'blocks.content-with-image',
       true
@@ -123,10 +140,12 @@ export interface SectionsStorySection extends Struct.ComponentSchema {
 export interface SectionsValuesSection extends Struct.ComponentSchema {
   collectionName: 'components_sections_values_sections';
   info: {
-    description: 'Company values section';
+    description: 'Company values section with background color';
     displayName: 'Values Section';
   };
   attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#F9F9F9'>;
     sectionTitle: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'OUR VALUES'>;
@@ -137,10 +156,12 @@ export interface SectionsValuesSection extends Struct.ComponentSchema {
 export interface SectionsWhyChooseSection extends Struct.ComponentSchema {
   collectionName: 'components_sections_why_choose_sections';
   info: {
-    description: 'Why choose us section with feature blocks';
+    description: 'Why choose us section with feature blocks and background color';
     displayName: 'Why Choose Section';
   };
   attributes: {
+    backgroundColor: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'#FFFFFF'>;
     features: Schema.Attribute.Component<'blocks.feature-block', true>;
     sectionTitle: Schema.Attribute.String &
       Schema.Attribute.Required &
@@ -214,6 +235,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'blocks.content-with-image': BlocksContentWithImage;
+      'blocks.faq-item': BlocksFaqItem;
       'blocks.feature-block': BlocksFeatureBlock;
       'blocks.social-link': BlocksSocialLink;
       'blocks.value-card': BlocksValueCard;

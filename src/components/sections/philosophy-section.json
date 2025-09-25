@@ -2,7 +2,7 @@
     "collectionName": "components_sections_philosophy_sections",
     "info": {
       "displayName": "Philosophy Section",
-      "description": "Philosophy section with multiple content blocks"
+      "description": "Philosophy section with multiple content blocks and background color"
     },
     "options": {},
     "attributes": {
@@ -11,6 +11,10 @@
         "required": true,
         "default": "OUR PHILOSOPHY"
       },
+      "backgroundColor": {
+        "type": "string",
+        "default": "#F5F5F5"
+      },
       "contentBlocks": {
         "type": "component",
         "repeatable": true,
@@ -18,4 +22,3 @@
       }
     }
   }
-  

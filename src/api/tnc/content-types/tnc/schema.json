@@ -1,0 +1,37 @@
+{
+    "kind": "singleType",
+    "collectionName": "terms_and_conditions_page",
+    "info": {
+      "singularName": "tnc",
+      "pluralName": "tncs",
+      "displayName": "Terms and Conditions",
+      "description": "Terms and Conditions page content"
+    },
+    "options": {
+      "draftAndPublish": true
+    },
+    "pluginOptions": {
+      "i18n": {
+        "localized": false
+      }
+    },
+    "attributes": {
+      "title": {
+        "type": "string",
+        "required": true,
+        "default": "TERMS AND CONDITIONS"
+      },
+      "content": {
+        "type": "richtext",
+        "required": true
+      },
+      "lastUpdated": {
+        "type": "date"
+      },
+      "seo": {
+        "type": "component",
+        "repeatable": false,
+        "component": "shared.seo"
+      }
+    }
+  }

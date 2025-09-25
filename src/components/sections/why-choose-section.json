@@ -2,7 +2,7 @@
     "collectionName": "components_sections_why_choose_sections",
     "info": {
       "displayName": "Why Choose Section",
-      "description": "Why choose us section with feature blocks"
+      "description": "Why choose us section with feature blocks and background color"
     },
     "options": {},
     "attributes": {
@@ -11,6 +11,10 @@
         "required": true,
         "default": "WHY CHOOSE GRANDROSE?"
       },
+      "backgroundColor": {
+        "type": "string",
+        "default": "#FFFFFF"
+      },
       "features": {
         "type": "component",
         "repeatable": true,
@@ -18,4 +22,3 @@
       }
     }
   }
-  
