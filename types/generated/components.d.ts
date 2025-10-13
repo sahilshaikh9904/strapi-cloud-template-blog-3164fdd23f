@@ -1,5 +1,19 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksContactInfoItem extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_contact_info_items';
+  info: {
+    description: 'Individual contact information block';
+    displayName: 'Contact Info Item';
+  };
+  attributes: {
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    primaryText: Schema.Attribute.String & Schema.Attribute.Required;
+    secondaryText: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface BlocksContentWithImage extends Struct.ComponentSchema {
   collectionName: 'components_blocks_content_with_images';
   info: {
@@ -234,6 +248,7 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.contact-info-item': BlocksContactInfoItem;
       'blocks.content-with-image': BlocksContentWithImage;
       'blocks.faq-item': BlocksFaqItem;
       'blocks.feature-block': BlocksFeatureBlock;

@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "contact_us_page",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "Contact Us",
+    "description": "Contact Us page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": false
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "CONTACT US"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#F5F5F5"
+    },
+    "contactInfoItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.contact-info-item"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
