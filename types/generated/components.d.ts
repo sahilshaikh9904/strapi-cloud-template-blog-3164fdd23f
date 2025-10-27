@@ -86,6 +86,20 @@ export interface BlocksValueCard extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsEventSection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_event_sections';
+  info: {
+    description: 'Displays each event block with title, description, and image.';
+    displayName: 'Event Section';
+    icon: 'calendar';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionsHeroSection extends Struct.ComponentSchema {
   collectionName: 'components_sections_hero_sections';
   info: {
@@ -254,6 +268,7 @@ declare module '@strapi/strapi' {
       'blocks.feature-block': BlocksFeatureBlock;
       'blocks.social-link': BlocksSocialLink;
       'blocks.value-card': BlocksValueCard;
+      'sections.event-section': SectionsEventSection;
       'sections.hero-section': SectionsHeroSection;
       'sections.philosophy-section': SectionsPhilosophySection;
       'sections.stay-connected-section': SectionsStayConnectedSection;
