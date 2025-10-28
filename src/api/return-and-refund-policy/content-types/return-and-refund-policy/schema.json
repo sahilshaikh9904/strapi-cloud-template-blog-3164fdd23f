@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "return_and_refund_policies",
+  "info": {
+    "singularName": "return-and-refund-policy",
+    "pluralName": "return-and-refund-policies",
+    "displayName": "Return & Refund Policy"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+      "title": {
+        "type": "string",
+        "required": true,
+        "default": "RETURN AND REFUNDS"
+      },
+      "content": {
+        "type": "richtext",
+        "required": true
+      }
+    }
+}
