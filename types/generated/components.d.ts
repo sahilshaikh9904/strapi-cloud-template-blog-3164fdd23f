@@ -145,7 +145,6 @@ export interface SectionsStayConnectedSection extends Struct.ComponentSchema {
     backgroundImage: Schema.Attribute.Media<'images'> &
       Schema.Attribute.Required;
     description: Schema.Attribute.RichText & Schema.Attribute.Required;
-    socialLinks: Schema.Attribute.Component<'blocks.social-link', true>;
     title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'STAY CONNECTED'>;
