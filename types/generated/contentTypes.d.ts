@@ -762,6 +762,37 @@ export interface ApiReturnAndRefundPolicyReturnAndRefundPolicy
   };
 }
 
+export interface ApiSearchBannerSearchBanner
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'search_banners';
+  info: {
+    displayName: 'Search Banner';
+    pluralName: 'search-banners';
+    singularName: 'search-banner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    link: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::search-banner.search-banner'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTncTnc extends Struct.SingleTypeSchema {
   collectionName: 'terms_and_conditions_page';
   info: {
@@ -1316,6 +1347,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::return-and-refund-policy.return-and-refund-policy': ApiReturnAndRefundPolicyReturnAndRefundPolicy;
+      'api::search-banner.search-banner': ApiSearchBannerSearchBanner;
       'api::tnc.tnc': ApiTncTnc;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
