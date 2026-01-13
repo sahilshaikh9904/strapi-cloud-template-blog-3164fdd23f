@@ -32,6 +32,20 @@ export interface BlocksContentWithImage extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksEventContactInfoItem extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_event_contact_info_items';
+  info: {
+    description: 'Event-specific contact information block';
+    displayName: 'Event Contact Info Item';
+  };
+  attributes: {
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    primaryText: Schema.Attribute.String & Schema.Attribute.Required;
+    secondaryText: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface BlocksFaqItem extends Struct.ComponentSchema {
   collectionName: 'components_blocks_faq_items';
   info: {
@@ -263,6 +277,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'blocks.contact-info-item': BlocksContactInfoItem;
       'blocks.content-with-image': BlocksContentWithImage;
+      'blocks.event-contact-info-item': BlocksEventContactInfoItem;
       'blocks.faq-item': BlocksFaqItem;
       'blocks.feature-block': BlocksFeatureBlock;
       'blocks.social-link': BlocksSocialLink;

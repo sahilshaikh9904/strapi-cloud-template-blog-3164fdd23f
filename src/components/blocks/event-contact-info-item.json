@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_blocks_event_contact_info_items",
+  "info": {
+    "displayName": "Event Contact Info Item",
+    "description": "Event-specific contact information block"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "primaryText": {
+      "type": "string",
+      "required": true
+    },
+    "secondaryText": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
